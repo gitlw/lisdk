@@ -1,0 +1,39 @@
+This repository is used to create a SDK for the development of Northguard.
+The current SDK includes
+- llvm 11.0.1
+- cmake 3.19.4
+- ninja 1.10.2
+
+Steps to create the SDK tar.bz2 file and make it ready for download on github
+
+1. choose a install directory INSTALL_PREFIX, which should initially be an empty directory
+
+2. build and install llvm to the INSTALL_PREFIX
+   2.1 clone the llvm project with all tags
+      git clone --mirror git@github.com:llvm/llvm-project.git
+   2.2 checkout the tag llvmorg-11.0.1
+      git checkout -b 11.0.1 llvmorg-11.0.1
+   2.3 create the build directory and cd into it
+      mkdir build ; cd build
+   2.4 run cmake
+      cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../llvm
+   2.5 run cmake build
+      cmake --build .
+   2.6 install
+      cmake --install . --prefix $INSTALL_PREFIX
+
+3. build and install cmake to the INSTALL_PREFIX
+   3.1 download cmake
+   3.2 configure it
+       ./configure --prefix $INSTALL_PREFIX
+   3.3 run gmake
+       gmake
+   3.3 install it
+       gmake install       
+
+4. download and copy the ninja binary into the $INSTALL_PREFIX/bin
+
+5. create a tar.bz2 file from the $INSTALL_PREFIX directory, e.g.
+   tar cjf llvm11-sdk.tar.bz2 $INSTALL_PREFIX
+
+6. create a release in this repo, and in the release page attach the tar.bz2 file as a binary
