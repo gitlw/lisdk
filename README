@@ -33,6 +33,8 @@ Steps to create the SDK tar.bz2 file and make it ready for download on github
 
 4. download and copy the ninja binary into the $INSTALL_PREFIX/bin
 
+5. update and copy the .lisdk-version file in this repo to the $INSTALL_PREFIX
+
 5. create a tar.bz2 file from the $INSTALL_PREFIX directory, e.g.
    tar cjf llvm11-sdk.tar.bz2 $INSTALL_PREFIX
 
