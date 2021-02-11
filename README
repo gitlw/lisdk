@@ -36,8 +36,8 @@ Steps to create the SDK tar.bz2 file and make it ready for download on github
 5. update and copy the .lisdk-version file in this repo to the $INSTALL_PREFIX
 
 6. build and install gcc to the INSTALL_PREFIX
-   6.1 clone gcc with all tags
-      git clone --mirror git@github.com:gcc-mirror/gcc.git
+   6.1 clone gcc with all tags and checkout the tag with the version you want to build
+      git clone --mirror git@github.com:gcc-mirror/gcc.git && git checkout -b gcc-10.2.0 gcc-10.2.0
    6.2 create a build directory
       mkdir gcc-build && cd gcc-build
    6.3 configure
