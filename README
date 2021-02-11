@@ -45,7 +45,7 @@ Steps to create the SDK tar.bz2 file and make it ready for download on github
    6.4 make
    6.5 make install
 
-7. create a tar.bz2 file from the $INSTALL_PREFIX directory, e.g.
-   tar cjf llvm11-sdk.tar.bz2 ./llvm11-sdk
+7. create a tar.bz2 file. Note that the lisdk-install.sh script will only strip the first component in file path, so only pass the directory name e.g.
+   tar cjf llvm11-sdk.tar.bz2 llvm11-sdk
 
 8. create a release in this repo, and in the release page attach the tar.bz2 file as a binary
