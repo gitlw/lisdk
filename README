@@ -35,7 +35,17 @@ Steps to create the SDK tar.bz2 file and make it ready for download on github
 
 5. update and copy the .lisdk-version file in this repo to the $INSTALL_PREFIX
 
-5. create a tar.bz2 file from the $INSTALL_PREFIX directory, e.g.
-   tar cjf llvm11-sdk.tar.bz2 $INSTALL_PREFIX
+6. build and install gcc to the INSTALL_PREFIX
+   6.1 clone gcc with all tags
+      git clone --mirror git@github.com:gcc-mirror/gcc.git
+   6.2 create a build directory
+      mkdir gcc-build && cd gcc-build
+   6.3 configure
+      ./configure --prefix=$INSTALL_PREFIX --disable-multilib
+   6.4 make
+   6.5 make install
 
-6. create a release in this repo, and in the release page attach the tar.bz2 file as a binary
+7. create a tar.bz2 file from the $INSTALL_PREFIX directory, e.g.
+   tar cjf llvm11-sdk.tar.bz2 ./llvm11-sdk
+
+8. create a release in this repo, and in the release page attach the tar.bz2 file as a binary
